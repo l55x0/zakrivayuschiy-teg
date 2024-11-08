@@ -1,0 +1,18 @@
+doctype html
+block variables
+
+html(lang='ru')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='color-sheme', content='dark light')
+        title= title
+        link(rel='icon', href=faviconIco, sizes='any')
+        link(rel='icon', href=faviconSvg, type='image/svg+xml')
+        link(rel='apple-touch-icon', href=faviconSvg)
+        link(rel='stylesheet', href='/fonts/index.css')
+        link(rel='stylesheet', href='/bundle.css')
+        script(src='./scripts/index.js' defer)
+    body.page
+        block content
+  
