@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "lint": "stylelint ./**/*.{css,scss}",
-    "lintFix": "stylelint ./**/*.{css,scss} --fix",
-    "check": "prettier --check './src/**/*.{html,css,js}'",
-    "format": "prettier --write './src/**/*.{pug,scss,html,css,js}'",
+    "lint": "stylelint src/**/*.{css,scss}",
+    "lintfix": "stylelint src/**/*.{css,scss} --fix",
+    "check": "prettier --check 'src/**/*.{html,css,js}'",
+    "format": "prettier --write 'src/**/*.{pug,scss,html,css,js}'",
     "checkAll": "npm run check && npm run lint",
     "fixAll": "npm run format && npm run lintfix",
     "checkAndFix": "npm run checkAll && npm run fixAll",
@@ -14,7 +14,7 @@
     "dev": "gulp"
   },
   "devDependencies": {
-    "@prettier/plugin-pug": "^3.0.0",
+    "@prettier/plugin-pug": "^3.2.0",
     "browser-sync": "^3.0.2",
     "del": "^6.0.0",
     "gh-pages": "^6.1.1",
@@ -26,7 +26,7 @@
     "gulp-sass": "^5.1.0",
     "gulp-uglify-es": "^3.0.0",
     "postcss": "^8.4.38",
-    "prettier": "^3.3.0",
+    "prettier": "^3.3.3",
     "prettier-plugin-css-order": "^2.1.2",
     "sass": "^1.80.6",
     "stylelint": "^16.5.0",

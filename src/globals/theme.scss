@@ -1,7 +1,9 @@
 :root.theme-light {
   --bg-color: #fff;
   --text-color: #000;
-  --bg-image: repeating-linear-gradient(2px, red, 2px, transparent);
+  --bg-gradient: repeating-linear-gradient(#d3d3d3 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px),
+    linear-gradient(#e7e7e7 0.01%, #1a1a1a);
   --accent-font-weight: 700;
   --base-font-weight: 400;
 }

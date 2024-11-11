@@ -1,0 +1,25 @@
+@use "../../mixins/mixins";
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--accent-font, sans-serif);
+  justify-content: flex-end;
+  gap: 20px;
+  text-transform: uppercase;
+  background-color: var(--bg-color, #000);
+  margin: 100px auto 0;
+  border: 2px solid currentcolor;
+  min-block-size: 364px;
+  padding-block-end: 25px;
+  @include mixins.content-size;
+
+  &__title {
+    font-size: clamp(0.875rem, 0.6875rem + 0.8333vw, 1.4375rem);
+  }
+
+  &__subtitle {
+    font-size: clamp(3.0625rem, 2.7292rem + 1.4815vw, 4.0625rem);
+  }
+}

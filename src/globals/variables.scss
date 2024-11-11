@@ -1,12 +1,15 @@
 :root {
   --bg-color: #000;
   --text-color: #00cc14;
-  --bg-image: repeating-linear-gradient(2px, red, 2px, transparent);
+  --bg-gradient: repeating-linear-gradient(#000 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(90deg, #000 0 2px, transparent 2px 4px),
+    linear-gradient(#007f0c, #004306);
   --base-font-size: 18px;
   --max-page-inline-size: 1440px;
   --min-page-inline-size: 360px;
-  --base-font: 'Inter Variable', 'Arial', sans-serif;
-  --accent-font: 'PressStart2P', courier, fantasy;
+  --base-font: "Inter Variable", "Arial", sans-serif;
+  --accent-font: "PressStart2P", courier, fantasy;
   --accent-font-weight: 785;
   --base-font-weight: 465;
+  --content-size: clamp(420px, 50%, calc(1440px - (372px * 2)));
 }

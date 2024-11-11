@@ -1,0 +1,10 @@
+-
+  var listData = [
+    {textButton: 'темно', theme: 'dark', disabled: false, class: 'theme-menu'},
+    {textButton: 'авто',theme: 'auto', disabled: true, class: 'theme-menu'},
+    {textButton: 'светло', theme: 'light',  disabled: false, class: 'theme-menu'}
+    ] 
+
+nav.theme-menu.header__theme-menu
+  include ../list/list.pug
+  +list(listData)
