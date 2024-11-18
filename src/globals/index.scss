@@ -1,6 +1,6 @@
-@use "globals";
-@use "variables";
-@use "theme";
+@use 'globals';
+@use 'variables';
+@use 'theme';
 
 .page {
   min-inline-size: var(--min-page-inline-size, 360px);
@@ -13,6 +13,22 @@
   background-image: var(--bg-gradient, none);
   background-repeat: no-repeat;
   background-size: cover;
-  font-variation-settings: "wght" var(--base-font-weight, 465)
+  font-variation-settings: 'wght' var(--base-font-weight, 465)
     var(--accent-font-weight, 768);
+}
+
+.dialog {
+  display: grid;
+  position: fixed;
+  inset: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  &:not([open]) {
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &::backdrop {
+    background-color: rgb(0 0 0 / 0.75);
+  }
 }

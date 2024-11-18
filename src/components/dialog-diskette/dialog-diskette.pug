@@ -1,0 +1,12 @@
+extends ../../layouts/dialog
+
+block variables
+  - var id = 'dialog-diskette';
+  - var className = 'dialog-diskette';
+
+block dialogContent
+  p.dialog-diskette__paragraf= 'Вставьте дискету, чтобы продолжить'
+  button.dialog-diskette__button(
+    type='button',
+    onclick='window[\'dialog-diskette\'].close()'
+  )= 'ок'
