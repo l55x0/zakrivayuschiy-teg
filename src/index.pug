@@ -1,9 +1,12 @@
 extends ./layouts/default
 
 block variables
-  - var title = "Закрывающий тег";
-  - var faviconIco = "/img/favicon/favicon.ico";
-  - var faviconSvg = "/img/favicon/favicon.svg";
+  - var title = 'Закрывающий тег';
+  - var faviconIco = '/images/favicon.svg';
+  - var faviconSvg = '/images/favicon.svg';
 
 block content
   include ./components/header/header.pug
+  main
+    section.content-section
+      include ./components/cards/cards.pug

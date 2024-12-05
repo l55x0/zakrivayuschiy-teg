@@ -35,7 +35,9 @@ function scripts() {
 }
 
 function images() {
-  return src('src/images/**/*.*')
+  return src('src/images/**/*.{jpg,png,svg,gif,ico,webp,avif}', {
+    encoding: false,
+  })
     .pipe(dest('dist/images'))
     .pipe(browserSync.reload({ stream: true }));
 }

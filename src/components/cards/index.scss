@@ -1,0 +1,113 @@
+@use 'mixins';
+
+$filters: (
+  o100 opacity(100),
+  s70 sepia(70%),
+  s250-b80 (saturate(250%) brightness(80%)),
+  hr20-g40-b80 (hue-rotate(20deg) grayscale(40%) brightness(80%)),
+  i70-b80 (invert(70%) brightness(80%)),
+  g90 grayscale(90%),
+  b20 blur(20px),
+  hr80-b50-i20 (hue-rotate(80deg) brightness(50%) invert(20%))
+);
+
+$tegs: (
+  1 '</HTML>',
+  2 '</HTML>',
+  3 '<CSS>',
+  4 '<desigions>',
+  5 'care',
+  6 '<support>',
+  7 '<lifes-style: none;>',
+  8 '<experience>'
+);
+
+.card {
+  border: 2px solid currentColor;
+  background-color: var(--bg-color, transparent);
+
+  &__title {
+    font-size: var(--base-font-size, 18px);
+    padding: 3px 10px;
+    font-weight: var(--accent-font-weight, bolt);
+  }
+
+  &__img-wrapper {
+    position: relative;
+    border-block: 2px solid currentColor;
+
+    &::before {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      z-index: 1;
+      font-family: var(--accent-font, sans-serif);
+      font-size: var(--small-font-size, 14px);
+      color: currentColor;
+      mix-blend-mode: hard-light;
+      opacity: 0.5;
+      text-shadow:
+        1px 1px 0 var(--bg-color, transparent),
+        1px -1px 0 var(--bg-color, transparent),
+        -1px 1px 0 var(--bg-color, transparent),
+        -1px -1px 0 var(--bg-color, transparent);
+
+      @supports (-webkit-text-stroke: inherit) {
+        -webkit-text-stroke: 0.6px var(--bg-color, transparent);
+        text-shadow: none;
+      }
+    }
+  }
+
+  @each $num, $teg in $tegs {
+    &:nth-child(#{$num}) &__img-wrapper::before {
+      content: $teg;
+    }
+  }
+
+  &__img {
+    display: block;
+    aspect-ratio: 1/1;
+  }
+
+  &__paragrafs {
+    font-weight: var(--base-font-weight, normal);
+    margin: 25px;
+
+    &_item:not(:last-child) {
+      margin-block-end: 25px;
+    }
+  }
+
+  &__buttons-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 12px;
+    margin-inline: 25px;
+    margin-block-end: 25px;
+  }
+
+  &__icon-button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    width: 39px;
+    height: 36px;
+  }
+
+  &__like-button {
+    @include mixins.button;
+    min-inline-size: 130px;
+  }
+}
+
+.heart {
+  cursor: pointer;
+}
+
+@each $teg, $filter in $filters {
+  .filter-#{$teg} {
+    filter: $filter;
+  }
+}

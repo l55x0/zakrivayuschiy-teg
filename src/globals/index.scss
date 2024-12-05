@@ -1,6 +1,7 @@
-@use "globals";
-@use "variables";
-@use "theme";
+@use 'globals';
+@use 'variables';
+@use 'theme';
+@use 'mixins';
 
 .page {
   min-inline-size: var(--min-page-inline-size, 360px);
@@ -13,6 +14,15 @@
   background-image: var(--bg-gradient, none);
   background-repeat: no-repeat;
   background-size: cover;
-  font-variation-settings: "wght" var(--base-font-weight, 465)
+  font-variation-settings: 'wght' var(--base-font-weight, 465)
     var(--accent-font-weight, 768);
+}
+
+.content-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 54px;
+  @include mixins.content-size;
+  margin: 0 auto;
 }
