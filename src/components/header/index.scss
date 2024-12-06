@@ -1,4 +1,4 @@
-@use "../../mixins/mixins";
+@use 'mixins';
 
 .header {
   display: flex;
@@ -9,7 +9,7 @@
   gap: 20px;
   text-transform: uppercase;
   background-color: var(--bg-color, #000);
-  margin: 100px auto 0;
+  margin: 100px auto 100px;
   border: 2px solid currentcolor;
   min-block-size: 364px;
   padding-block-end: 25px;

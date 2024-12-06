@@ -2,15 +2,18 @@ extends ./layouts/default
 
 block variables
   - var title = 'Закрывающий тег';
-  - var faviconIco = '/img/favicon/favicon.ico';
+  - var faviconIco = '/img/favicon/favicon.svg';
   - var faviconSvg = '/img/favicon/favicon.svg';
 
 block content
-  include ./components/header/header.pug
-  button.diskette-dialog-button(
-    type='button',
-    aria-haspopup='dialog',
-    aria-controls='dialog-diskette',
-    onclick='window[\'dialog-diskette\'].showModal()'
-  )= 'сохранить на память'
   include ./components/dialog-diskette/dialog-diskette.pug
+  include ./components/header/header.pug
+  main
+    section.content-section
+      include ./components/cards/cards.pug
+      button.diskette-dialog-button(
+        type='button',
+        aria-haspopup='dialog',
+        aria-controls='dialog-diskette',
+        onclick='window[\'dialog-diskette\'].showModal()'
+      )= 'сохранить на память'

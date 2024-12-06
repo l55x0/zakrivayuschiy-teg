@@ -1,0 +1,23 @@
+include ../../data/cards.pug
+each item in cards
+  article.card
+    h2.card__title #{ item.title }
+    .card__img-wrapper
+      picture.card__picture
+        source(srcset=item.imgAvif, type='image/avif')
+        source(srcset=item.imgWebp, type='image/webp')
+        img.card__img(
+          alt=item.imgAlt,
+          src=item.imgPng,
+          loading='lazy',
+          class='filter-' + item.filter
+        )
+    .card__paragrafs
+      each paragraf in item.paragrafs
+        p.card__paragrafs_item #{ paragraf }
+    .card__buttons-wrapper
+      button.card__icon-button(type='button')
+        svg(viewBox='0 0 39 36')
+          use.heart(href='/images/heart.svg#heart')
+      button.card__like-button(type='button')
+        span.button__text= 'like'

@@ -19,6 +19,7 @@ function pug() {
 
 function scss() {
   return src(['src/index.scss'])
+    .pipe(plumber())
     .pipe(concat('bundle.css'))
     .pipe(sass({ outputStyle: 'expanded' }))
     .pipe(autoprefixer())
@@ -34,15 +35,15 @@ function scripts() {
 }
 
 function images() {
-  return src('src/images/**/*.*')
-    .pipe(plumber())
+  return src('src/images/**/*.{jpg,png,svg,gif,ico,webp,avif}', {
+    encoding: false,
+  })
     .pipe(dest('dist/images'))
     .pipe(browserSync.reload({ stream: true }));
 }
 
 function fonts() {
   return src('src/fonts/**/*.*', { encoding: false })
-    .pipe(plumber())
     .pipe(dest('dist/fonts'))
     .pipe(browserSync.reload({ stream: true }));
 }

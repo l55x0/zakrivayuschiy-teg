@@ -1,0 +1,13 @@
+@mixin content-size {
+  inline-size: var(--content-size, 80%);
+}
+
+@mixin button {
+  font-family: var(--accent-font, sans-serif);
+  font-size: var(--small-font-size, 14px);
+  background: transparent;
+  border: 2px solid currentColor;
+  padding: 10px 20px;
+  text-transform: capitalize;
+  cursor: pointer;
+}

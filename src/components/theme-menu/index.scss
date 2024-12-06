@@ -10,10 +10,10 @@
 
   &__button {
     position: relative;
+    padding: 0;
     font-size: 14px;
     border: none;
     background-color: transparent;
-    outline: none;
     text-transform: uppercase;
     border-block-end: 2px solid transparent;
 
@@ -27,7 +27,7 @@
       pointer-events: none;
 
       &::before {
-        content: "▶";
+        content: '▶';
         position: absolute;
         top: 2;
         left: -16px;
