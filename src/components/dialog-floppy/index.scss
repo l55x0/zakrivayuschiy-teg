@@ -5,7 +5,6 @@
   grid-template-columns: 39px 1fr;
   max-inline-size: 360px;
   gap: 30px 20px;
-  border: 2px solid currentColor;
   background-color: var(--bg-color, #fff);
   padding: 30px;
 
@@ -14,6 +13,7 @@
     font-family: var(--accent-font, sans-serif);
     line-height: 1.3;
     text-transform: uppercase;
+    color: var(--text-color, currentColor);
   }
 
   &__button_close {
