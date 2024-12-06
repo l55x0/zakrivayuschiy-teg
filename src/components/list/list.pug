@@ -1,9 +1,9 @@
 mixin list(itemsArray)
-  ul(class=itemsArray[0].class + "__list")
+  ul(class=itemsArray[0].class + '__list')
     each item in itemsArray
-      li(class=item.class + "__item")
+      li(class=item.class + '__item')
         button(
-          class=item.class + "__button",
+          class=item.class + '__button',
           type=item.type,
           data-theme=item.theme,
           disabled=item.disabled

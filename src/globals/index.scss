@@ -40,5 +40,17 @@
   align-items: center;
   gap: 54px;
   @include mixins.content-size;
-  margin: 0 auto;
+  margin: 0 auto 100px;
+}
+
+.floppy-button {
+  display: flex;
+  place-items: center;
+  gap: 8px;
+  @include mixins.button;
+  min-inline-size: 335px;
+
+  & span::first-letter {
+    text-transform: uppercase;
+  }
 }

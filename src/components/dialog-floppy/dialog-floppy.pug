@@ -1,0 +1,19 @@
+extends ../../layouts/dialog
+
+block variables
+  - var id = 'dialog-floppy';
+  - var className = 'dialog-floppy';
+
+block dialogContent
+  svg(
+    viewBox='0 0 39 39',
+    width='39px',
+    height='39px',
+    xmlns='http://www.w3.org/2000/svg'
+  )
+    use.floppy(href='/images/floppy.svg#floppy')
+  p.dialog-floppy__paragraf= 'Вставьте дискету, чтобы продолжить'
+  button.dialog-floppy__button_close(
+    type='button',
+    onclick='window[\'dialog-floppy\'].close()'
+  )= 'ок'

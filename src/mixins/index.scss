@@ -3,11 +3,15 @@
 }
 
 @mixin button {
+  color: var(--text-color, currentColor);
   font-family: var(--accent-font, sans-serif);
   font-size: var(--small-font-size, 14px);
-  background: transparent;
-  border: 2px solid currentColor;
+  background-color: var(--bg-color, transparent);
+  border: 2px solid var(--text-color, currentColor);
   padding: 10px 20px;
-  text-transform: capitalize;
   cursor: pointer;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
 }

@@ -2,18 +2,24 @@ extends ./layouts/default
 
 block variables
   - var title = 'Закрывающий тег';
-  - var faviconIco = '/img/favicon/favicon.svg';
-  - var faviconSvg = '/img/favicon/favicon.svg';
+  - var faviconIco = '/images/favicon.svg';
+  - var faviconSvg = '/images/favicon.svg';
 
 block content
-  include ./components/dialog-diskette/dialog-diskette.pug
-  include ./components/header/header.pug
   main
     section.content-section
       include ./components/cards/cards.pug
-      button.diskette-dialog-button(
+      button.floppy-button(
         type='button',
         aria-haspopup='dialog',
-        aria-controls='dialog-diskette',
-        onclick='window[\'dialog-diskette\'].showModal()'
-      )= 'сохранить на память'
+        aria-controls='dialog-floppy',
+        onclick='window[\'dialog-floppy\'].showModal()'
+      )
+        svg(
+          viewBox='0 0 39 39',
+          width='21px',
+          height='21px',
+          xmlns='http://www.w3.org/2000/svg'
+        )
+          use.floppy(href='/images/floppy.svg#floppy')
+        span= 'сохранить на память'
