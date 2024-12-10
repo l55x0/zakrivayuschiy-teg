@@ -93,3 +93,13 @@
     text-transform: uppercase;
   }
 }
+
+@media (width <= 425px) {
+  .content-section {
+    inline-size: 100%;
+  }
+
+  .floppy-button {
+    min-inline-size: 90%;
+  }
+}

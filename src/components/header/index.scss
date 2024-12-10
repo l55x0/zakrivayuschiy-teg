@@ -23,3 +23,9 @@
     font-size: clamp(3.0625rem, 2.7292rem + 1.4815vw, 4.0625rem);
   }
 }
+
+@media (width <= 425px) {
+  .header {
+    inline-size: 100%;
+  }
+}
