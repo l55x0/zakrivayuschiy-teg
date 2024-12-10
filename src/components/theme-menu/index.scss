@@ -1,3 +1,5 @@
+@use './animations.scss';
+
 .theme-menu {
   &__list {
     list-style: none;
@@ -15,7 +17,7 @@
     border: none;
     background-color: transparent;
     text-transform: uppercase;
-    border-block-end: 2px solid transparent;
+    transition: opacity 0.3s ease-in-out;
 
     &:hover {
       opacity: 0.6;
@@ -26,18 +28,35 @@
       opacity: 0.6;
       pointer-events: none;
 
-      &::before {
+      &::after {
         content: '▶';
         position: absolute;
-        top: 2;
-        left: -16px;
+        top: 0;
+        left: -20px;
+        animation: move-arrow 1.3s infinite ease-in-out;
       }
     }
 
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: currentColor;
+      transition: width 0.3s ease-in-out;
+    }
+
     &:focus-visible {
-      border-block-end: 2px solid currentColor;
       outline: none;
       opacity: 0.6;
+      transition: opacity 0.3s ease-in-out;
+
+      &::before {
+        width: 100%;
+        opacity: 0.6;
+      }
     }
   }
 }

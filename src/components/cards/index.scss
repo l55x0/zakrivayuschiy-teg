@@ -1,3 +1,4 @@
+@use './animations.scss';
 @use 'mixins';
 
 $filters: (
@@ -24,7 +25,7 @@ $tegs: (
 
 .card {
   border: 2px solid currentColor;
-  background-color: var(--bg-color, transparent);
+  background-color: var(--main-color, transparent);
 
   &__title {
     font-size: var(--base-font-size, 18px);
@@ -47,13 +48,13 @@ $tegs: (
       mix-blend-mode: hard-light;
       opacity: 0.5;
       text-shadow:
-        1px 1px 0 var(--bg-color, transparent),
-        1px -1px 0 var(--bg-color, transparent),
-        -1px 1px 0 var(--bg-color, transparent),
-        -1px -1px 0 var(--bg-color, transparent);
+        1px 1px 0 var(--main-color, transparent),
+        1px -1px 0 var(--main-color, transparent),
+        -1px 1px 0 var(--main-color, transparent),
+        -1px -1px 0 var(--main-color, transparent);
 
       @supports (-webkit-text-stroke: inherit) {
-        -webkit-text-stroke: 0.6px var(--bg-color, transparent);
+        -webkit-text-stroke: 0.6px var(--main-color, transparent);
         text-shadow: none;
       }
     }
@@ -89,21 +90,89 @@ $tegs: (
   }
 
   &__icon-button {
-    background: transparent;
-    border: none;
-    padding: 0;
+    @include mixins.button;
     width: 39px;
     height: 36px;
+
+    &:focus-visible {
+      outline: 2px solid var(--accent-color, currentColor);
+      transition: outline 0.3s ease-in-out;
+    }
   }
 
   &__like-button {
-    @include mixins.button;
     min-inline-size: 130px;
+    padding: 10px 20px;
   }
 }
 
-.heart {
+.like-icon {
   cursor: pointer;
+
+  .heart__contour {
+    fill: var(--accent-color, currentColor);
+    transition: fill 0.3s linear;
+  }
+
+  .heart__body {
+    fill: transparent;
+    transition: fill 0.3s linear 0.05s;
+  }
+
+  .heart__core {
+    fill: transparent;
+    transition: fill 0.3s linear;
+  }
+
+  .sparks {
+    fill: transparent;
+  }
+
+  &:hover {
+    .heart__core {
+      fill: var(--accent-color, currentColor);
+      transition-duration: 0.03s;
+    }
+
+    .heart__body {
+      fill: var(--accent-color, currentColor);
+      transition-delay: 0;
+    }
+  }
+
+  &:active {
+    .heart__core {
+      fill: var(--accent-color-2, red);
+    }
+
+    .heart__body {
+      fill: var(--accent-color-2, red);
+    }
+  }
+
+  &.is-liked {
+    .heart {
+      transform-origin: center;
+      animation: scale-heart 0.3s ease-in 0.1s alternate;
+
+      &__core {
+        fill: var(--accent-color-2, red);
+      }
+
+      &__body {
+        fill: var(--accent-color-2, red);
+      }
+
+      &__contour {
+        fill: var(--accent-color-2, red);
+        transition-duration: 0.06s;
+      }
+    }
+
+    .sparks {
+      animation: spark-visible 0.3s ease-in 0.3s alternate;
+    }
+  }
 }
 
 @each $teg, $filter in $filters {

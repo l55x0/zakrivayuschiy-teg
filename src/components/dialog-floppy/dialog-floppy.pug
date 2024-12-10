@@ -13,7 +13,8 @@ block dialogContent
   )
     use.floppy(href='/images/floppy.svg#floppy')
   p.dialog-floppy__paragraf= 'Вставьте дискету, чтобы продолжить'
-  button.dialog-floppy__button_close(
+  button.button.dialog-floppy__button_close(
     type='button',
     onclick='window[\'dialog-floppy\'].close()'
-  )= 'ок'
+  ) 
+    span= 'ок'

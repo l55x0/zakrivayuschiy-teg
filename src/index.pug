@@ -9,7 +9,7 @@ block content
   main
     section.content-section
       include ./components/cards/cards.pug
-      button.floppy-button(
+      button.button.floppy-button(
         type='button',
         aria-haspopup='dialog',
         aria-controls='dialog-floppy',
@@ -22,4 +22,4 @@ block content
           xmlns='http://www.w3.org/2000/svg'
         )
           use.floppy(href='/images/floppy.svg#floppy')
-        span= 'сохранить на память'
+        span.button__text= 'сохранить на память'

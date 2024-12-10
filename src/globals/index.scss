@@ -8,9 +8,9 @@
   max-inline-size: var(--max-page-inline-size, 1440px);
   min-block-size: 100dvh;
   font-family: var(--base-font, sans-serif);
-  color: var(--text-color, #00cc14);
+  color: var(--accent-color, #00cc14);
   font-size: var(--base-font-size, 18px);
-  background-color: var(--bg-color, #000);
+  background-color: var(--main-color, #000);
   background-image: var(--bg-gradient, none);
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,7 +23,7 @@
   position: fixed;
   inset: 0;
   transition: opacity 0.3s ease-in-out;
-  border: 2px solid var(--text-color, currentColor);
+  border: 2px solid var(--accent-color, currentColor);
 
   &:not([open]) {
     pointer-events: none;
@@ -44,12 +44,50 @@
   margin: 0 auto 100px;
 }
 
+.button {
+  @include mixins.button;
+  border: 2px solid var(--accent-color, currentColor);
+  cursor: pointer;
+  position: relative;
+  transition: box-shadow 0.3s ease-in-out;
+
+  &:focus-visible {
+    box-shadow: 2px 2px var(--accent-color, currentColor);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transition: width 0.5s ease-in-out;
+    background-color: var(--accent-color, currentColor);
+    width: 0;
+  }
+
+  &:hover {
+    &::after {
+      width: 100%;
+    }
+  }
+
+  & svg,
+  span {
+    position: relative;
+    z-index: 1;
+    mix-blend-mode: difference;
+  }
+
+  & .floppy {
+    fill: var(--mix-blend-color, currentColor);
+  }
+}
+
 .floppy-button {
   display: flex;
   place-items: center;
   gap: 8px;
-  @include mixins.button;
   min-inline-size: 335px;
+  padding: 15px 20px;
 
   & span::first-letter {
     text-transform: uppercase;
